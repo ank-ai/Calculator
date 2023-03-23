@@ -1,3 +1,4 @@
+
 function add(arg1, arg2){
     return arg1+arg2;
 }
@@ -39,8 +40,19 @@ function operate(operator,arg1,arg2){
 let firstNumber;
 let operator;
 let secondNumber;
+let display=document.querySelector(".display");
 
-//-------------
+
+//------------------------------------------------functions that populate display when number buttons are pressed
+
+function concatDisplayValue(){
+    display.textContent+=this.textContent;
+}
+
+const numbers = document.querySelectorAll(".numb");
+numbers.forEach(button=>{button.addEventListener("click",concatDisplayValue)})
+
+
 
 
 
