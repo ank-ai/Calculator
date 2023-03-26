@@ -101,6 +101,7 @@ function execute(){
     setDisplay(result)
     firstNumber= result;
     secondNumber = undefined;
+    display.classList.add("blink")
 }
 
 //-------------------------------------------------- equals and clear buttons
@@ -115,4 +116,31 @@ clear.addEventListener("click", ()=>{
     secondNumber=undefined;
 })
 
+const undo = document.querySelector(".undo")
+
+undo.addEventListener("click",()=>{
+    display.textContent=display.textContent.slice(0,display.textContent.length-1)
+    firstNumber=Number(display.textContent)
+})
+
+const bod = document.querySelector("body");
+
+//make html elements so concatDisplayValue can work
+
+
+
+bod.addEventListener("keydown",function(e){
+    for(let i=0; i<10;i++){
+    
+        if(e.code.includes(i)){
+            if(secondNumber==undefined && firstNumber!=undefined){
+                display.textContent= i; 
+                secondNumber = Number(display.textContent);  
+            }else if(display.textContent=="Divide by zero? Don't be a hero..."){
+                display.textContent="";
+                display.textContent+=i;
+            }else{display.textContent+=i;}
+        }
+    }
+})
 

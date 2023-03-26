@@ -9,11 +9,11 @@ body {
 }
 
 .clear{
-    background-color: coral;
+    background-color: crimson;
 }
 
 .equals{
-    background-color: gray;
+    background-color: coral;
 }
 
 .numb{
@@ -21,14 +21,15 @@ body {
 }
 
 .calculator{
-    background-color: crimson;
-    min-height: 55vh;
+    background-color: white;
+    min-height: 42vh;
     min-width: 20vh;
     border-radius: 15px;
-    border: solid pink 0.5vh;
+    border: solid black 0.5vh;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;}
+    justify-content: space-between;
+}
 
 .display{
     background-color: aquamarine;
@@ -39,13 +40,40 @@ body {
     display: flex;
     justify-content: flex-end;
     align-items: center;
+    font-family: Courier New;
+    font-style: oblique;
+    font-weight: bolder;
+    padding-top: 1vh;
+    padding-right: 4vh;
+    border: solid black 0.5vh;
 }
 
 body{
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    justify-content: space-between;
     align-items: center;
-    background-color: black;
+    background-color: pink;
+}
+
+
+
+.functionalButtons{
+    display: flex;
+    flex-direction: column;
+    margin: 1vh 1vh;
+
+}
+
+.clear{
+    margin: 1vh 0;
+}
+
+button{
+    font-family: Courier New;
+    font-weight: bolder;
+    border-radius: 1vh;
+    border: solid black 0.4vh;
 }
 
 .digits{
@@ -54,12 +82,47 @@ body{
     align-items: center;
 }
 
-.functionalButtons{
-    display: flex;
-    flex-direction: column;
-    margin: 1vh 1vh;
+.undo{
+    background-color:lightgray;
 }
 
-.clear{
-    margin: 1vh 0;
+.spread{
+    margin: 0.2vh;
 }
+
+img{
+    height: 6vh;
+    width: 6vh;
+    border-radius: 1.5vh;
+}
+
+.git{
+    height: 4vh;
+    width: 4vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 2vh;
+    background:none;
+    border: none;
+   
+}
+
+.footer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 4vh;
+
+}
+
+.blink {
+    animation: blinker 1s linear infinite;
+  }
+  
+  @keyframes blinker {
+    50% {
+      opacity: 0;
+    }
+  }
