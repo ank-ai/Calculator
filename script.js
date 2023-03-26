@@ -29,7 +29,6 @@ function operate(operator,arg1,arg2){
            return multiply(arg1,arg2)
         
         case "%":
-         
            return divide(arg1,arg2)
 
         default: 
@@ -45,6 +44,7 @@ function setDisplay(value){
 function getDisplay(){
     return Number(display.textContent)
 }
+
 //-------------------------------------------------variables to update display
 
 let firstNumber;
@@ -59,6 +59,9 @@ function concatDisplayValue(){
     if(secondNumber==undefined && firstNumber!=undefined){
         display.textContent= this.textContent; 
         secondNumber = Number(display.textContent);  
+    }else if(display.textContent=="Divide by zero? Don't be a hero..."){
+        display.textContent="";
+        display.textContent+=this.textContent;
     }else{display.textContent+=this.textContent;}
 }
 
@@ -86,14 +89,30 @@ operators.forEach(button=>{button.addEventListener("click",useOperand)})
 //---------------------------------------------
 
 function execute(){
+    if(operator==undefined || firstNumber ==undefined || secondNumber==undefined){return}       //cornder case
     secondNumber= Number(display.textContent);
-    let result= operate(operator,firstNumber, secondNumber)
+    if(secondNumber==0 && operator=="%"){
+        setDisplay("Divide by zero? Don't be a hero...")
+        firstNumber= undefined;
+        secondNumber=undefined;
+        return;
+    }
+    let result= Number(operate(operator,firstNumber, secondNumber).toFixed(3))
     setDisplay(result)
     firstNumber= result;
     secondNumber = undefined;
 }
 
-//--------------------------------------------------
+//-------------------------------------------------- equals and clear buttons
 
 const equals = document.querySelector(".equals");
 equals.addEventListener("click", execute);
+
+const clear = document.querySelector(".clear");
+clear.addEventListener("click", ()=>{
+    display.textContent="";
+    firstNumber= undefined;
+    secondNumber=undefined;
+})
+
+
