@@ -101,7 +101,7 @@ function execute(){
     setDisplay(result)
     firstNumber= result;
     secondNumber = undefined;
-    display.classList.add("blink")
+
 }
 
 //-------------------------------------------------- equals and clear buttons
@@ -125,7 +125,6 @@ undo.addEventListener("click",()=>{
 
 const bod = document.querySelector("body");
 
-//make html elements so concatDisplayValue can work
 
 
 
